@@ -4,4 +4,9 @@
 - learn about writing to sqlite.
 - experiment with async coding.
 
+
+### Next
+
+- review the state of logging, and implement something.
+
 ---

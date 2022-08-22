@@ -27,8 +27,8 @@ impl Config {
     }
 }
 
-
-fn main() {    
+#[tokio::main]
+async fn main() {    
 
     /* configure settings */
     let config = Config::new();

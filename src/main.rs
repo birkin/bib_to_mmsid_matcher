@@ -30,7 +30,7 @@ impl Config {
 
 fn main() {    
 
-    /* setup settings */
+    /* configure settings */
     let config = Config::new();
     // println!("config, ``{:?}``", config);
 
@@ -38,6 +38,27 @@ fn main() {
     let mut log_builder = Builder::from_default_env();
     log_builder.target( Target::Stdout );
     log_builder.init();
+    debug!( "settings, ``{:?}``", config );
+
+    /* initialize sqlite file */
+
+    /* get list of marc files */
+
+    /*  for each file... */
+
+        /*  open file */
+
+        /* for each marc-reacord... iterate through marc-record-data */
+
+            /* pull out old-bib */
+
+            /* pull out mms_id */
+
+            /* save to sqlite3 file */
+
+
+
+
 
     debug!( "{}", format!("config, ``{:#?}``", config) );  // debug! needs a string literal 
 

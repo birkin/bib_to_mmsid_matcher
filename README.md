@@ -7,6 +7,9 @@
 
 ### Next
 
+- review previous work, and online info, for how main.rs can call code from other files.
+    - resource: <https://doc.rust-lang.org/book/ch07-00-managing-growing-projects-with-packages-crates-and-modules.html>
+    - code: the_book chapter 7; restaurant code
 - review previous marc work for async flow.
     - check out `marc_experimentation_stuff/code/exp08_async/`
 - √ review the state of logging, and implement something.

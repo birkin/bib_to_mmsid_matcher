@@ -1,8 +1,10 @@
-#[macro_use]
-extern crate log;
-extern crate env_logger;
+mod logger; // enables the log_debug!() and log_info!() macros
 
-use env_logger::{Builder, Target};
+#[macro_use]
+// extern crate log;
+// extern crate env_logger;
+
+// use env_logger::{Builder, Target};
 use serde::Deserialize;
 use std::env;
 
@@ -39,15 +41,16 @@ impl Config {
 
 #[tokio::main]
 async fn main() {
+    logger::init_logger().unwrap();
     /* configure settings */
     let config = Config::new();
     // println!("config, ``{:?}``", config);
 
     /* setup logging */
-    let mut log_builder = Builder::from_default_env();
-    log_builder.target(Target::Stdout);
-    log_builder.init();
-    debug!("settings, ``{:?}``", config);
+    // let mut log_builder = Builder::from_default_env();
+    // log_builder.target(Target::Stdout);
+    // log_builder.init();
+    // debug!("settings, ``{:?}``", config);
 
     /* initialize sqlite file */
 
@@ -65,11 +68,14 @@ async fn main() {
 
     /* save to sqlite3 file */
 
-    debug!("{}", format!("config, ``{:#?}``", config)); // debug! needs a string literal
+    // debug!("{}", format!("config, ``{:#?}``", config)); // debug! needs a string literal
+    // debug!("this is a debug: ``{}``", "message");
+    // info!("this is an info: ``{}``", "message");
+    // error!("this is an error: ``{}``", "message");
 
-    debug!("this is a debug: ``{}``", "message");
-    info!("this is an info: ``{}``", "message");
-    error!("this is an error: ``{}``", "message");
+    log_debug!("{}", format!("config, ``{:#?}``", config)); // debug! needs a string literal
+    log_debug!("this is a debug: ``{}``", "message");
+    log_info!("this is an info: ``{}``", "message");
 
     println!("Hello, world!");
 }
